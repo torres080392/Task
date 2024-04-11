@@ -13,8 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notas', function (Blueprint $table) {
+        Schema::create('tareas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('users_id')->nullable();
+            $table->unsignedBigInteger('categoria_id');
+            $table->string('descripcion');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notas');
+        Schema::dropIfExists('tareas');
     }
 };
