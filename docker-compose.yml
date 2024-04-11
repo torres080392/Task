@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - database
+    environment:
+      - DB_HOST=tareas-database-1
+      - DB_PORT=3306
+      - DB_DATABASE=tareas
+      - DB_USERNAME=root
+      - DB_PASSWORD=199203
+
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: tareas
+      MYSQL_ROOT_PASSWORD: 199203
+    ports:
+      - "3306:3306"
