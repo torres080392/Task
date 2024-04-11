@@ -71,14 +71,6 @@
                 data-dismiss="modal">Mostrar usuarios</button>
         </form>
 
-        <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
-            @if (session()->has('message'))
-                <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
-                    role="alert">
-                    {{ session('message') }}
-                </div>
-            @endif
-        </div>
     </div>
     <table>
 
@@ -324,6 +316,34 @@
 
 
 
+        @if ($modalCrear)
+        <div class="fixed z-10 inset-0 overflow-y-auto">
+            <div class="flex items-center justify-center min-h-screen px-4">
+                <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                    <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+                </div>
+                <div class="relative bg-white rounded-lg p-8 max-w-md w-full">
+                    <div class="flex justify-between items-center pb-3">
+                        <h5 class="text-lg font-semibold">Modal title</h5>
+                        <button type="button" class="text-gray-700 hover:text-gray-900" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="text-gray-700">
+                        <p>Usuario creado exitosamente.</p>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <button type="button" class="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Save changes
+                        </button>
+                        <button wire:click="cerrarModalCrear" type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" data-dismiss="modal">
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif    
 
 
 

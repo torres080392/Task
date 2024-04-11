@@ -25,6 +25,7 @@ class UsuariosLivewire extends Component
     public $modalActualizar = false;
     public $usuarioSeleccionado;
     public $document='';
+    public $modalCrear= false;
 
 
     public $modalAbierto = false;
@@ -99,6 +100,12 @@ class UsuariosLivewire extends Component
         session()->flash('message', 'Usuario actualizado exitosamente.');
     }
 
+    public function cerrarModalCrear()
+    {
+
+        $this->modalCrear=false;
+    }
+
 
 
 //Funcion para crear usuarios
@@ -115,7 +122,10 @@ class UsuariosLivewire extends Component
         $this->reset();
         //modal de mensaje
         session()->flash('message', 'Usuario creado exitoxamente.');
+        $this->modalCrear=true;
     }
+    
+
 
 
 
