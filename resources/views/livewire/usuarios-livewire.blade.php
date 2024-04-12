@@ -15,12 +15,12 @@
                     <p class="text-green-500 text-xs italic">Nombre de usuario.</p>
                 </div>
 
-                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <div class="w-full md:w-1/2 px-3 mb-7 md:mb-0">
 
-                    <label for="rol" class="form-label">Rol del usuario:</label>
-                    <select wire:model="rol_id" id="rol" name="rol" class="form-select p-2 border rounded"
+                    <label for="rol" class="form-label">Selecciona Rol:</label>
+                    <select wire:model="rol_id" id="rol" name="rol" class="form-select p-2  border rounded"
                         required>
-                        <option value="">Seleccionar rol</option>
+                        <option value="">Seleccion</option>
                         @foreach ($roles as $rol)
                             <option value="{{ $rol->id }}">{{ $rol->rol }}</option>
                         @endforeach
@@ -40,12 +40,12 @@
                 </div>
                 <div class="w-full md:w-1/2 px-3">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                        for="grid-last-name">
+                        for="document">
                         Documento
                     </label>
                     <input wire:model="document"
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-last-name" type="number" placeholder="Escriba su documento">
+                        id="document" type="number" placeholder="Escriba su documento">
                 </div>
             </div>
             <div class="flex flex-wrap -mx-3 mb-6">
@@ -56,7 +56,7 @@
                     </label>
                     <input wire:model="password"
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                        id="grid-password" type="password" placeholder="***********">
+                        id="password" type="password" placeholder="***********">
                     <p class="text-gray-600 text-xs italic">Minimo de 8 carapteres</p>
                 </div>
             </div>
@@ -324,7 +324,7 @@
                 </div>
                 <div class="relative bg-white rounded-lg p-8 max-w-md w-full">
                     <div class="flex justify-between items-center pb-3">
-                        <h5 class="text-lg font-semibold">Modal title</h5>
+                        <h5 class="text-lg font-semibold">Mensaje exitoso</h5>
                         <button type="button" class="text-gray-700 hover:text-gray-900" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -333,9 +333,6 @@
                         <p>Usuario creado exitosamente.</p>
                     </div>
                     <div class="mt-4 flex justify-end">
-                        <button type="button" class="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Save changes
-                        </button>
                         <button wire:click="cerrarModalCrear" type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" data-dismiss="modal">
                             Cerrar
                         </button>
