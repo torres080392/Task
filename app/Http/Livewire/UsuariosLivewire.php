@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\UserCreation;
 use App\Models\Roles;
 use App\Models\User;
 use GuzzleHttp\Psr7\Message;
@@ -11,6 +12,7 @@ use Livewire\Component;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\WithPagination;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Mail;
 
 class UsuariosLivewire extends Component
 {
@@ -111,13 +113,20 @@ class UsuariosLivewire extends Component
 //Funcion para crear usuarios
     public function createUser()
     {
-        User::create([
+       
+        $user = User::create([
             'rol_id' => $this->rol_id,
             'name' => $this->name,
             'email' => $this->email,
             'document' => $this->document,
             'password' => Hash::make($this->password),
         ]);
+    
+        // Verifica si el usuario se creó correctamente
+        if ($user) {
+            // Envía el correo electrónico de notificación
+            Mail::to($user->email)->send(new UserCreation($user));
+        }
         // Limpiar los campos después de guardar
         $this->reset();
         //modal de mensaje
@@ -131,7 +140,7 @@ class UsuariosLivewire extends Component
 
     public function render()
     {
-        $listadoUser = User::paginate(5);
+        $listadoUser = User::paginate(4);
         $roles = Roles::all();
         return view('livewire.usuarios-livewire', compact('roles', 'listadoUser'));
     }
