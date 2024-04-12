@@ -1,7 +1,7 @@
 <div class="flex justify-center items-center h-screen">
     <div class="w-full max-w-lg">
         <form wire:submit.prevent="createUser" class="bg-gray shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <h4>Formulario para crear usuarios</h4></br>
+            <h3>Rellenar los campos</h3></br>
             <!-- Resto del formulario... -->
             <div class="flex flex-wrap -mx-3 mb-6">
                 <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -58,22 +58,43 @@
                         class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                         id="password" type="password" placeholder="***********">
                     <p class="text-gray-600 text-xs italic">Minimo de 8 carapteres</p>
+                    <p class="text-green-500 text-xs italic">Dejar a todos los usuarios contraseña 199203.</p>
                 </div>
             </div>
 
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
                 Crear
-            </button>
-            <button wire:click="listado"
-                class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2
-             bg-green-500 text-base font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2
-              focus:ring-green-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                data-dismiss="modal">Mostrar usuarios</button>
+              </button>
+        </br>
+    </br>
+</br>
+<div class="max-w-md mx-auto bg-gray-200 shadow-md rounded-lg overflow-hidden">
+    <div class="p-6">
+        <button wire:click="listado"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block"
+                data-dismiss="modal">Listado usuarios
+        </button>
+    </div>
+    <div class="p-6">
+        <a href="#"
+           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block">
+            Modulo de tareas
+        </a>
+    </div>
+    <div class="p-6">
+        <a href="#"
+           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 block">
+            Modulo de asignaciones
+        </a>
+    </div>
+</div>
+
+        
         </form>
 
     </div>
     <table>
-
+   
 
 
         <!-- Modal de confirmación de eliminación -->
