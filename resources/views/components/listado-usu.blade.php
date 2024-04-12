@@ -1,7 +1,7 @@
 @livewireStyles
+@vite('resources/css/app.css')
 
-
-@include('layouts.menu')
+<livewire:menu />
 
 <body>
 <livewire:listado-usu-livewire />

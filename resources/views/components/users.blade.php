@@ -1,10 +1,11 @@
 
 
     @livewireStyles
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+    @vite('resources/css/app.css')
+ 
    
-    @include('layouts.menu')
-
+    <livewire:menu />
 
   
 <body>
